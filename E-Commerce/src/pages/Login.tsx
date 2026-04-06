@@ -1,0 +1,79 @@
+import { useState } from "react"
+import { useNavigate } from "react-router-dom";
+
+interface inputsInt {
+  email: string;
+  password: string;
+}
+
+export const Login = () => {
+  const [inputs, setInputs] = useState<inputsInt>({
+    email: '',
+    password: ''
+  })
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputs(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }))
+  }
+
+  const isValidEmail = (email: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  
+  const navigate = useNavigate();
+  const handleButton = (e) => {
+
+    e.preventDefault()
+    if (inputs.email !== '' && inputs.password !== '') {
+      navigate('/')
+    }
+
+    if(!isValidEmail) alert('Invalid Email Format')
+
+  }
+
+  return (
+    <>
+      <div className="h-screen flex justify-center items-center flex-col space-y-10">
+        <h1 className="text-4xl">Welcome back</h1>
+        <h2 className="text-2xl">Login in with credentials</h2>
+
+        <form className="border rounded-2xl p-7 shadow-2xl space-y-8" onSubmit={handleButton}>
+          {/* //email section  */}
+          <div className="flex flex-col space-y-3">
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder="example@email.com"
+              required
+              name="email"
+              value={inputs.email}
+              onChange={handleInputChange}
+              className="border rounded-2xl py-1 px-7 text-center"
+            />
+          </div>
+
+          {/* password section  */}
+          <div className="flex flex-col space-y-3">
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="**********"
+              required
+              name="password"
+              value={inputs.password}
+              onChange={handleInputChange}
+              className="border rounded-2xl py-2 px-7 text-center"
+            />
+          </div>
+
+          <div className="flex justify-center">
+            <button className="border rounded-2xl px-6 py-2" onClickCapture={handleButton}>Login</button>
+          </div>
+        </form>
+      </div>
+    </>
+  )
+}
