@@ -1,8 +1,8 @@
-
+import { AppRoutes } from "./Routes/AppRoutes"
 
 function App() {
   return (
-    <div>App Creation</div>
+    <AppRoutes/>
   )
 }
 
