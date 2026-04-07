@@ -2,8 +2,6 @@ import { Navbar } from "../Routes/Navbar"
 import { useState, useEffect } from "react"
 import shoppingCart from "../assets/realest.png"
 
-
-// categories interface 
 interface categoriesInterface {
   id: number;
   name: string;
@@ -52,17 +50,17 @@ export const Home = () => {
     <>
       <Navbar />
 
-      {/* //categories and image  */}
-      <div className="flex justify-center p-30 relative mb-60">
+
+      <div className="flex flex-col items-center justify-center p-8 relative mb-16 lg:mb-60">
+        <p className="text-4xl sm:text-5xl md:text-6xl lg:text-9xl font-bold relative z-10 text-center">
+          Categories
+        </p>
+
         <img
           src={shoppingCart}
           alt="shopping cart"
-          className="absolute -top-20 -left-20 w-150 h-150 z-0 object-contain my-20 hidden lg:block"
+          className="w-100 h-100 mt-4 lg:mt-0 lg:w-150 lg:h-150 lg:absolute lg:-top-20 lg:-left-20 lg:z-0 object-contain"
         />
-
-        <p className="text-7xl sm:text-8xl md:text-9xl lg:text-9xl font-bold relative z-10">
-          Categories
-        </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9 p-9">
         {categories.map(cat => (
