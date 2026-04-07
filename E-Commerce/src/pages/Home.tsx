@@ -1,5 +1,7 @@
 import { Navbar } from "../Routes/Navbar"
 import { useState, useEffect } from "react"
+import shoppingCart from "../assets/realest.png"
+
 
 // categories interface 
 interface categoriesInterface {
@@ -49,16 +51,29 @@ export const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+
+      {/* //categories and image  */}
+      <div className="flex justify-center p-30 relative mb-60">
+        <img
+          src={shoppingCart}
+          alt="shopping cart"
+          className="absolute -top-20 -left-20 w-150 h-150 z-0 object-contain my-20 hidden lg:block"
+        />
+
+        <p className="text-7xl sm:text-8xl md:text-9xl lg:text-9xl font-bold relative z-10">
+          Categories
+        </p>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9 p-9">
         {categories.map(cat => (
           <div
             key={cat.id}
-            className="border rounded-lg overflow-hidden shadow-xl hover:shadow-lg transition"
+            className="border rounded-3xl overflow-hidden shadow-xl hover:shadow-lg transition"
           >
             <img
               src={cat.image}
               alt={cat.name}
-              className="w-full h-70 object-cover"
+              className="w-full h-70 object-cover rounded-2xl"
               onError={(e: any) => {
                 e.target.src = "https://via.placeholder.com/300x200?text=No+Image"
               }}
