@@ -7,7 +7,7 @@ export const Navbar = () => {
     to="/" 
     className="text-3xl sm:text-4xl lg:text-5xl mb-2 sm:mb-0"
   >
-    E-Commerce
+    BAG IT
   </Link>
 
   <Link 
