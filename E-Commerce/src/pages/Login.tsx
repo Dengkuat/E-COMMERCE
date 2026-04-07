@@ -26,14 +26,14 @@ export const Login = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+  
     if (!isValidEmail(inputs.email)) {
       alert('Invalid Email Format');
       return;
     }
-
+  
     if (inputs.email !== '' && inputs.password !== '') {
-      navigate('/'); // navigate to home page
+      navigate('/', { replace: true }); // user can't go back
     }
   };
 
