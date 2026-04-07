@@ -68,19 +68,19 @@ export const Home = () => {
         {categories.map(cat => (
           <div
             key={cat.id}
-            className="border rounded-3xl overflow-hidden shadow-xl hover:shadow-lg transition"
+            className="p-8 overflow-hidden shadow-xl hover:shadow-lg transition"
           >
             <img
               src={cat.image}
               alt={cat.name}
-              className="w-full h-70 object-cover rounded-2xl"
+              className="w-full h-100 object-cover rounded-2xl"
               onError={(e: any) => {
                 e.target.src = "https://via.placeholder.com/300x200?text=No+Image"
               }}
             />
 
-            <div className="p-2">
-              <p>{cat.name}</p>
+            <div className="p-2 flex justify-center">
+              <p className="text-2xl font-semibold">{cat.name}</p>
             </div>
           </div>
         ))}
