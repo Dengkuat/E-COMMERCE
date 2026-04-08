@@ -33,7 +33,7 @@ export const Login = () => {
     }
   
     if (inputs.email !== '' && inputs.password !== '') {
-      navigate('/', { replace: true }); // user can't go back
+      navigate('/', { replace: true });
     }
   };
 
@@ -44,19 +44,19 @@ export const Login = () => {
 
       <form
         className="border rounded-2xl p-7 shadow-2xl space-y-8"
-        onSubmit={handleSubmit} // use form submit handler
+        onSubmit={handleSubmit} 
       >
         {/* Email Section */}
         <div className="flex flex-col space-y-3">
           <label>Email</label>
           <input
             type="email"
-            placeholder="example@email.com"
+            placeholder="domain@example.com"
             required
             name="email"
             value={inputs.email}
             onChange={handleInputChange}
-            className="border rounded-2xl py-1 px-7 text-center"
+            className="border rounded-2xl py-2 px-7 text-center outline-none ring-1  focus:ring-2 focus:border-transparent transition duration-300 focus:ring-blue-600"
           />
         </div>
 
@@ -70,7 +70,7 @@ export const Login = () => {
             name="password"
             value={inputs.password}
             onChange={handleInputChange}
-            className="border rounded-2xl py-2 px-7 text-center"
+            className="border rounded-2xl py-2 px-7 text-center outline-none ring-1  focus:ring-2 focus:border-transparent transition duration-300 focus:ring-blue-600"
           />
         </div>
 
