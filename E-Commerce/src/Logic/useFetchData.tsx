@@ -15,7 +15,11 @@ export const useFetchData = <T,>(url: string) => {
       const data: T[] = await res.json();
       setInputs(data);
     } catch (err) {
-      setError(err)
+      if (err instanceof Error) {
+        setError(err.message)
+      } else {
+        setError(String(err))
+      }
     } finally {
       setLoading(false)
     }
