@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-export const useFetchData = <T,>(url:String) => {
+export const useFetchData = <T,>(url: string) => {
   const [inputs, setInputs] = useState<T[]>([])
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null)
@@ -12,7 +12,7 @@ export const useFetchData = <T,>(url:String) => {
       const res = await fetch(url)
       if (!res.ok) throw new Error(`Failed to fetch from URL`)
 
-      const data:T[] = await res.json();
+      const data: T[] = await res.json();
       setInputs(data);
     } catch (err) {
       setError(err)
@@ -25,5 +25,5 @@ export const useFetchData = <T,>(url:String) => {
     fetchUsers()
   }, [url])
 
-  return {inputs, loading, error}
+  return { inputs, loading, error }
 }
