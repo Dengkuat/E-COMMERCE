@@ -2,6 +2,8 @@ import { Navbar } from "../Routes/Navbar"
 import shoppingCart from "../assets/realest.png"
 import { useFetchData } from "../Logic/useFetchData"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+
 
 interface categoriesInterface {
   id: number;
@@ -10,14 +12,18 @@ interface categoriesInterface {
 }
 
 export const Home = () => {
+  const navigate = useNavigate();
   const [search, setSearch] = useState<string>('')
   const { inputs, loading, error } = useFetchData<categoriesInterface>(`https://api.escuelajs.co/api/v1/categories`)
 
   if (loading) return <p>calm down, Loading...</p>
   if (error) return <p>{error}</p>
 
+  const handleClickNavigation = (id: number) => {
+    navigate(`/categories/${id}`);
+  };
 
-  const handleUserSearch = (e : React.ChangeEvent<HTMLInputElement>) => {
+  const handleUserSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value)
   }
 
@@ -29,7 +35,7 @@ export const Home = () => {
   return (
     <>
       <Navbar />
-      
+
       <div className="flex flex-col items-center justify-center p-8 relative mb-16 lg:mb-60 ">
         <p className="text-4xl sm:text-5xl md:text-6xl lg:text-9xl font-bold relative z-10 text-center">
           Categories
@@ -54,6 +60,7 @@ export const Home = () => {
         {filteredCategories
           .map((cat) => (
             <div
+            onClick={() => handleClickNavigation(cat.id)}
               key={cat.id}
               className="p-8 overflow-hidden shadow-xl hover:shadow-lg transition"
             >
