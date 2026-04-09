@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useFetchData } from "../Logic/useFetchData"
 
-interface ProductsInterface {
+ interface ProductsInterface {
   id: number;
   title: string;
   price: number;
@@ -11,7 +11,7 @@ interface ProductsInterface {
 export const Categories = () => {
   const { id } = useParams()
 
-const { inputs, loading, error } = useFetchData<ProductsInterface>(
+const { inputs, loading, error } = useFetchData<ProductsInterface[]>(
   `https://api.escuelajs.co/api/v1/categories/${id}/products`
 )
 
