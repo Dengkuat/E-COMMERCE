@@ -14,7 +14,7 @@ interface categoriesInterface {
 export const Home = () => {
   const navigate = useNavigate();
   const [search, setSearch] = useState<string>('')
-  const { inputs, loading, error } = useFetchData<categoriesInterface>(`https://api.escuelajs.co/api/v1/categories`)
+  const { inputs, loading, error } = useFetchData<categoriesInterface[]>(`https://api.escuelajs.co/api/v1/categories`)
 
   if (loading) return <p>calm down, Loading...</p>
   if (error) return <p>{error}</p>
