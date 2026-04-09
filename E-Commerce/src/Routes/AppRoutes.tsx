@@ -8,8 +8,8 @@ export const AppRoutes = () => {
   return (
     <div>
       <Routes>
-        <Route path='/categories' element={<Home />}/>
-        <Route path='/categories/products/:id' element={<Categories />} />
+        <Route path='/' element={<Home />}/>
+        <Route path='/categories/:id' element={<Categories />} />
         <Route path='/login' element={<Login />} />
         <Route path='*' element={<NoMatch />} />
       </Routes>
