@@ -15,7 +15,6 @@ export const Home = () => {
 
   if (loading) return <p>calm down, Loading...</p>
   if (error) return <p>{error}</p>
-  console.log(inputs)
 
 
   const handleUserSearch = (e : React.ChangeEvent<HTMLInputElement>) => {
@@ -30,8 +29,7 @@ export const Home = () => {
   return (
     <>
       <Navbar />
-
-
+      
       <div className="flex flex-col items-center justify-center p-8 relative mb-16 lg:mb-60 ">
         <p className="text-4xl sm:text-5xl md:text-6xl lg:text-9xl font-bold relative z-10 text-center">
           Categories
